@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./home.css">
+    <title>Calorie Counter - Main Page</title>
+</head>
+<body>
+    <header id="header">
+        <h1>Calorie Counter</h1>
+    </header>
+    <div class="containerRow"></div>
+        <div class="col" id="welcome">
+            <h2>Welcome back.</h2>
+        </div>
+    </div>
+    <div class="containerRow">
+        <div class="col">
+            <h2>Food log</h2>
+            <div class="pastPost">
+                <p>Your most recent food posts.</p>
+            </div>
+            <div class="pastPost">
+                <p>Your most recent food posts.</p>
+            </div>
+            <div class="pastPost">
+                <p>Your most recent food posts.</p>
+            </div>  
+        </div>
+        <div class="col">
+            <h2>Log a new meal</h2>
+            <div class="input">
+                <label for="food">What did you eat?</label>
+                <input type="text" id="food" name="food">
+            </div>
+            <div class="input">
+                <label for="cal">How many calories in your serving?</label>
+                <input type="text" id="cal" name="cal">
+            </div>
+            <div class="input">
+                <label for="img">Upload a photo of your meal:</label>
+                <input type="file" id="img" name="img" accept="image/*">
+                <input type="submit">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
