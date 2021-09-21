@@ -1,0 +1,34 @@
+#header {
+    height: 100px;
+    background-color: #797A9E;
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+  
+  #callAction {
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  .container {
+      display: flex;
+      flex: wrap;
+      align-items: center;
+      margin-top: 20px;
+      flex-direction: column;
+  }
+  
+  .input {
+      margin: 20px;
+  }
+  
+  #goBtn {
+      background-color:  #797A9E;
+      color: white;
+      opacity: 75%; 
+  }
+  
+  #goBtn:hover {
+      opacity: 100%;
+  }
