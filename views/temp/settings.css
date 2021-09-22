@@ -1,0 +1,35 @@
+#header {
+    height: 100px;
+    background-color: #797A9E;
+    color: white;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.container {
+    display: flex;
+    flex: wrap;
+    align-items: center;
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.input {
+    margin: 30px;
+}
+
+.center {
+    margin: auto;
+    width: 15%;
+    padding: 10px;
+}
+
+#saveBtn {
+    background-color:  #797A9E;
+    color: white;
+    opacity: 75%; 
+}
+
+#saveBtn:hover {
+    opacity: 100%;
+}

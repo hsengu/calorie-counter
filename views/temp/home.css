@@ -25,10 +25,11 @@
     text-align: center;
 }
 
-.pastPost {
-    margin: 20px;
+.center {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
     border: 3px solid #797A9E;
-    width: 50%;
 }
 
 .input {
