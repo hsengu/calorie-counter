@@ -88,7 +88,16 @@ router.post('/', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
 });
 
 
-router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
+router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) => {
+    const deletePhoto = await Photo.findOne({
+        where: {
+            post_id: req.params.id
+        },
+        attributes: ['cloud_id']
+    });
+
+    console.log(deletePhoto);
+
     Post.update(
         {
             foods: req.body.foods,
@@ -129,6 +138,14 @@ router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
                 where: {
                     post_id: req.params.id
                 }
+            }).then(async () => {
+                const delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
+                    if(err)
+                        console.log(err);
+                    return res;
+                });
+                
+                console.log(delPhoto);
             }).catch(err => {
                 console.log(err);
                 res.status(500).json(err);
