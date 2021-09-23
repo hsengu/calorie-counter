@@ -1,0 +1,15 @@
+main {
+    padding-top: 100px;
+}
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}

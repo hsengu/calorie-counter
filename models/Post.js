@@ -9,14 +9,9 @@ Post.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-            default: Date.now
-        },
-        food: {
+        foods: {
             type: DataTypes.TEXT,
             allowNull: false
         },
@@ -27,6 +22,7 @@ Post.init(
         },
         user_id: {
             type: DataTypes.INTEGER,
+            onDelete: 'CASCADE',
             references: {
                 model: 'user',
                 key: 'id'
