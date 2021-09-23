@@ -2,7 +2,15 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
+const cloudinary = require('./config/cloudinaryConfig');
 const sequelize = require('./config/connection');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+
+if(cloudinary) {
+    console.log('cloudinary config:');
+    console.log(cloudinary.config());
+};
 
 const app = express();
 const PORT = process.env.PORT || 3001;
