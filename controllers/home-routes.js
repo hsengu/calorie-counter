@@ -1,7 +1,11 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.status(404).json();
+
+});
+
+router.get('/upload', (req, res) => {
+    res.render('upload');
 });
 
 module.exports = router;
