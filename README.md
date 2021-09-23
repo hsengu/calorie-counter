@@ -22,5 +22,3 @@ Fork the repo and start creating your own changes
 
 # Questions
 Please contact us at my github [GTN-git, hroddy, hsengu, dmtuominen22](https://github.com/GTN-git, hroddy, hsengu, dmtuominen22)
-
-
