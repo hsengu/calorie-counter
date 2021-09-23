@@ -127,7 +127,14 @@ router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) 
                     });
                     return res;
                 }
-            );
+            ).then(async () => {
+                const delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
+                    if(err)
+                        console.log(err);
+                    console.log(`${deletePhoto.cloud_id} removed from cloudinary. ${delPhoto}`);
+                });
+                return res;
+            });
 
             await Photo.update(
                 {
@@ -138,14 +145,6 @@ router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) 
                 where: {
                     post_id: req.params.id
                 }
-            }).then(async () => {
-                const delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
-                    if(err)
-                        console.log(err);
-                    return res;
-                });
-                
-                console.log(delPhoto);
             }).catch(err => {
                 console.log(err);
                 res.status(500).json(err);
@@ -180,6 +179,7 @@ router.delete('/:id', /*withAuth,*/ async (req, res) => {
         const delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
             if(err)
                 console.log(err);
+            console.log(`${deletePhoto.cloud_id} removed from cloudinary. ${delPhoto}`);
             return res;
         });
         console.log(delPhoto);
