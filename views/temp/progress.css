@@ -1,41 +1,73 @@
 #header {
-    height: 100px;
+    height: 90px;
     background-color: #797A9E;
-    color: white;
     padding-top: 20px;
     padding-left: 20px;
-}
-
-.container {
     display: flex;
-    flex: wrap;
-    align-items: center;
-    margin-top: 20px;
-    flex-direction: row;
+    justify-content: space-between;
 }
 
-.centerSmall {
+.header-left-section {
+    display: flex;
+}
+
+.header-left-section a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-left-section a:hover{
+    text-shadow: 2px 2px black;
+}
+
+.header-right-section {
+    display: flex;
+    align-items: right;
+}
+
+#logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+#nav {
+    display: flex;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.nav-link:hover{
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.progress-center-small {
     margin: auto;
     width: 15%;
     padding: 10px;
 }
 
-.centerBig {
+.progress-center-big {
     margin: auto;
     width: 40%;
     padding: 10px;
 }
 
-#progressTracker {
+#progress-tracker {
     border: 3px solid #797A9E;
 }
 
-#saveBtn {
+#progress-save-btn {
     background-color:  #797A9E;
     color: white;
     opacity: 75%; 
 }
 
-#saveBtn:hover {
+#progress-save-btn:hover {
     opacity: 100%;
 }

@@ -1,35 +1,78 @@
+/*Header style start*/
+
 #header {
-    height: 100px;
+    height: 90px;
     background-color: #797A9E;
-    color: white;
     padding-top: 20px;
     padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.container {
+.header-left-section {
+    display: flex;
+}
+
+.header-left-section a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-left-section a:hover{
+    text-shadow: 2px 2px black;
+}
+
+.header-right-section {
+    display: flex;
+    align-items: right;
+}
+
+#logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+#nav {
+    display: flex;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.nav-link:hover{
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.settings-container {
     display: flex;
     flex: wrap;
-    align-items: center;
+    align-items: space-between;
+    justify-content: space-between;
     margin-top: 20px;
     flex-direction: row;
 }
 
-.input {
+.settings-input {
     margin: 30px;
 }
 
-.center {
+.settings-center {
     margin: auto;
     width: 15%;
     padding: 10px;
 }
 
-#saveBtn {
+#settings-save-btn {
     background-color:  #797A9E;
     color: white;
     opacity: 75%; 
 }
 
-#saveBtn:hover {
+#settings-save-btn:hover {
     opacity: 100%;
 }

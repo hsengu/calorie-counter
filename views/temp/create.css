@@ -1,10 +1,37 @@
+/*Create-Header style start */
+
 #header {
-    height: 100px;
+    height: 90px;
     background-color: #797A9E;
-    color: white;
     padding-top: 20px;
     padding-left: 20px;
-  }
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left-section {
+    display: flex;
+}
+
+.header-left-section h1 {
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+/*Create-Header style end */
+
+/*Create-Footer style start */
+
+/* TODO: insert footer css here */
+
+/*Create-Footer style end */
+
+/*Create style start */
   
   #callAction {
       text-align: center;
@@ -32,3 +59,5 @@
   #goBtn:hover {
       opacity: 100%;
   }
+
+  /*Create style start */

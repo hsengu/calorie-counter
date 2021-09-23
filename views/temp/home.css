@@ -1,37 +1,90 @@
 #header {
-    height: 100px;
+    height: 90px;
     background-color: #797A9E;
-    color: white;
     padding-top: 20px;
     padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
 }
+
+.header-left-section {
+    display: flex;
+}
+
+.header-left-section a{
+    color: white;
+    text-decoration: none;
+}
+
+.header-left-section a:hover{
+    text-shadow: 2px 2px black;
+}
+
+.header-right-section {
+    display: flex;
+    align-items: right;
+}
+
+#logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+#nav {
+    display: flex;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+.nav-link {
+    color: white;
+    font-size: 20px;
+}
+
+.nav-link:hover{
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
 
 #welcome {
     text-align: center;
-    border-bottom: 3px solid #797A9E;
+    justify-content: center;
+    display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.containerRow {
+#welcome h2 {
+    border-bottom: 3px solid #797A9E;
+    padding-bottom: 7px;
+}
+
+.home-container {
     display: flex;
     flex: wrap;
     align-items: space-between;
+    justify-content: space-between;
     margin-top: 20px;
-    text-align: center;
 }
 
-.col h2 {
+.home-col-title {
     text-align: center;
+    padding-bottom: 7px;
 }
 
-.center {
+.home-center {
     margin: auto;
-    width: 30%;
     padding: 10px;
-    border: 3px solid #797A9E;
+    width: 50%;
 }
 
-.input {
+.home-input {
     margin: 30px;
+}
+
+.pastPost {
+    border: 3px solid #797A9E;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
