@@ -51,8 +51,21 @@ router.post('/', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
     }).then(async dbPostData => {
         if(req.file) {
             dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
-        };
-        return res.json(dbPostData);
+        } else {
+            dbPostData = await Post.findOne({
+                where: {
+                    id: dbPostData.id
+                },
+                attributes: ['id', 'foods', 'calories', 'created_at'],
+                include: [
+                    {
+                        model: Photo,
+                        attributes: ['id', 'cloud_id', 'image_url']
+                    }
+                ]
+            });
+        }
+        res.json(dbPostData);
     }).catch(err => {
         console.log(err);
         res.status(500).json(err);
