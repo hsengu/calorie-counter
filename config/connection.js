@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
+=======
+>>>>>>> feature/databases
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
@@ -12,5 +15,8 @@ if (process.env.JAWSDB_URL) {
     port: 3306
   });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> feature/databases
 module.exports = sequelize;
