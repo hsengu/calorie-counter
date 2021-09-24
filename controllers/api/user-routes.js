@@ -38,6 +38,7 @@ router.post('/', (req, res) => {
     username: req.body.username,
     startweight: req.body.startweight,
     goalweight: req.body.goalweight,
+    caloriegoal: req.body.caloriegoal,
     password: req.body.password
   })
     .then(dbUserData => res.json(dbUserData))
