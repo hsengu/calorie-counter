@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    {{!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Calorie Tracker</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -39,8 +39,29 @@
                     {{/if}}
                 </form>
             </div>
+        </div> --}}
+    <header id="header">
+        <div class="header-left-section">
+            <img id="logo" src="blue-gray-logo.png" alt="a plate with spoon and fork">
+            <!--TODO: render home.handlebar -->
+            <h1><a href="#">Calorie Tracker</a></h1>
         </div>
-    </nav>
+        <div class="header-right-section">
+            <nav id="nav">
+                <!--TODO: render home.handlebar -->
+                <a class="nav-link" href="#">Home</a>
+                <p class="nav-link">|</p>
+                <!--TODO: render progress.handlebar -->
+                <a class="nav-link"href="#">Progress</a>
+                <p class="nav-link">|</p>
+                <!--TODO: render settings.handlebar -->
+                <a class="nav-link" href="#">Settings</a>
+            </nav>
+        </div>
+    </header>
+	{{{ body }}}
+    {{!-- TODO: Denise: add footer here --}}
+    {{!-- 
     <main>
         {{{ body }}}
     </main>
@@ -59,7 +80,7 @@
     <script src="/js/logout.js"></script>
     {{else}}
     <script src="/js/main.js"></script>
-    {{/if}}
+    {{/if}} --}}
 </body>
 
 </html>
