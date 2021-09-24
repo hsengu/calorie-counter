@@ -1,33 +1,37 @@
-    <div id="callAction">
-        <h2>Seize the moment. Create your profile.</h2>
+<div class="container">
+    <div class="col">
+        <div class="card text-center">
+            <h5 class="card-header">Seize the moment. Create your profile.</h5>
+            <div class="card-body">
+                <form class="signup-form">
+                    <div class="form-group row sign-up-input">
+                        <label for="name">Choose a username:</label>
+                        <input type="text" class="form-control" id="username-signup" name="username" placeholder="Used to login">
+                    </div>
+                    <div class="form-group row sign-up-input">
+                        <label for="password">Choose a password:</label>
+                        <input type="password" class="form-control" id="password-signup" name="password" placeholder="Used to login">
+                    </div>
+                    <div class="form-group row sign-up-input">
+                        <label for="startweight">Your starting weight:</label>
+                        <input type="number" class="form-control" id="start-weight" name="startweight" placeholder="In pounds (lbs)">
+                    </div>
+                    <div class="form-group row sign-up-input">
+                        <label for="goalweight">Your goal weight:</label>
+                        <input type="number" class="form-control" id="goal-weight" name="goalweight" placeholder="In pounds (lbs)">
+                    </div>
+                    <div class="form-group row sign-up-input">
+                        <label for="caloriegoal">Your daily calorie goal:</label>
+                        <input type="number" class="form-control" id="calorie-goal" name="caloriegoal">
+                    </div>
+                    <div class="form-group row">
+                        <div class="container-flex">
+                            <button type="submit" class="btn btn-primary">Let's go!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="container">
-        <div class="input">
-            <label for="name">Choose a username:</label>
-            <input type="text" id="username" name="username" placeholder="Used to login">
-        </div>
-        <div class="input">
-            <label for="name">Choose a password:</label>
-            <input type="text" id="password" name="password" placeholder="Used to login">
-        </div>
-        <div class="input">
-            <label for="name">Your name:</label>
-            <input type="text" id="name" name="name" placeholder="Full Name">
-        </div>
-        <div class="input">
-            <label for="sweight">Your starting weight:</label>
-            <input type="text" id="sweight" name="sweight" placeholder="In pounds (lbs)">
-        </div>
-        <div class="input">
-            <label for="gweight">Your goal weight:</label>
-            <input type="text" id="gweight" name="gweight" placeholder="In pounds (lbs)">
-        </div>
-        <div class="input">
-            <label for="calorie">Your daily calorie goal:</label>
-            <input type="text" id="calorie" name="calorie">
-        </div>
-        <div>
-            <button id="goBtn">Let's go!</button>
-        </div> 
-    </div>
+</div>
+<script src="/js/register.js"></script>
