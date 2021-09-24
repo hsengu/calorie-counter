@@ -63,11 +63,6 @@
         integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
-    {{#if loggedIn}}
-    <script src="/js/logout.js"></script>
-    {{else}}
-    <script src="/js/main.js"></script>
-    {{/if}}
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -79,6 +74,11 @@
         integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
+    {{#if loggedIn}}
+    <script src="/js/logout.js"></script>
+    {{else}}
+    <script src="/js/main.js"></script>
+    {{/if}}
 </body>
 
 </html>
