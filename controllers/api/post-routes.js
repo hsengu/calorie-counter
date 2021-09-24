@@ -72,7 +72,6 @@ router.post('/', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
     });
 });
 
-
 router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) => {
     Post.update(
         {
