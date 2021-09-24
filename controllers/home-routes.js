@@ -4,8 +4,8 @@ router.get('/', (req, res) => {
     res.render('home');
 });
 
-router.get('/signup', (req, res) => {
-    res.render('create');
+router.get('/signin', (req, res) => {
+    res.render('sign-in');
 });
 
 router.get('/upload', (req, res) => {
