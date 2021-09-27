@@ -5,10 +5,9 @@ router.get('/', (req, res) => {
         res.render('home', {
             loggedIn: req.session.loggedIn
         });
-    else
-        res.render('tracking', {
-            loggedIn: req.session.loggedIn
-        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/signin', (req, res) => {
@@ -16,10 +15,9 @@ router.get('/signin', (req, res) => {
         res.render('sign-in', {
             loggedIn: req.session.loggedIn
         });
-    else
-        res.render('tracking', {
-            loggedIn: req.session.loggedIn
-        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/register', (req, res) => {
@@ -27,10 +25,9 @@ router.get('/register', (req, res) => {
         res.render('register', {
             loggedIn: req.session.loggedIn
         });
-    else
-        res.render('tracking', {
-            loggedIn: req.session.loggedIn
-        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/upload', (req, res) => {

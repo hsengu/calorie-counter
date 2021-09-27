@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Photo } = require('../models');
 const withAuth = require('../utils/auth');
 
-// Route to load dashboard
+// Route to load calorie tracking data
 router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
@@ -14,6 +14,10 @@ router.get('/', withAuth, (req, res) => {
             {
                 model: Photo,
                 attributes: ['id', 'cloud_id', 'image_url']
+            },
+            {
+                model: User,
+                attributes: ['caloriegoal']
             }
         ]
     }).then(dbPostData => {
@@ -37,6 +41,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
             {
                 model: Photo,
                 attributes: ['id', 'cloud_id', 'image_url']
+            },
+            {
+                model: User,
+                attributes: ['caloriegoal']
             }
         ]
     }).then(dbPostData => {
