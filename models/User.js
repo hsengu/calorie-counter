@@ -21,22 +21,20 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     startweight: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
     },
     goalweight: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
     },
     caloriegoal: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      unique: true,
     },
     password: {
       type: DataTypes.STRING,

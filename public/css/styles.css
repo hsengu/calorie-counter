@@ -1,5 +1,6 @@
 main {
     padding-top: 100px;
+    height: 93vh;
 }
 
 .vertical-center {
@@ -10,6 +11,10 @@ main {
     align-items: center;
 }
 
+.fill {
+    height: 100%;
+}
+
 .form-group {
     margin-bottom: 1rem;
 }
@@ -17,6 +22,6 @@ main {
 .footer {
     bottom: 0;
     width: 100%;
-    line-height: 60px;
+    line-height: 40px;
     background-color: #f5f5f5;
 }
