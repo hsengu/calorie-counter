@@ -1,0 +1,59 @@
+<form action="/api/post" method="post" enctype="multipart/form-data" class="new-post-form" id="post-form">
+    <div class="form-group row">
+        <label for="post-food" class="col-sm-2 col-form-label">Food:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" id="post-food" rows="10" name="foods"
+                placeholder="What did you eat?"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="post-calories" class="col-sm-2 col-form-label">Calories:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="post-calories" name="calories" aria-describedby="caloriesHelp"
+                placeholder="Enter total calorie intake.">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="post-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
+        <div class="col-sm-10">
+            <input class="form-control" id="post-photo" type="file" name="photo"> </>
+        </div>
+    </div>
+    <div class="form-group row">
+        <button type="submit" form="post-form" id="publish-btn" class="btn btn-primary">Save</button>
+    </div>
+</form>
+<script src="/js/add-post.js"></script>
+
+
+<div class="modal fade" id="add-post-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">New Post</h5>
+            </div>
+            <div class="modal-body">
+                <form class="new-post-form">
+                    <div class="form-group row">
+                        <label for="post-title" class="col-sm-2 col-form-label">Title:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="post-title" aria-describedby="titleHelp"
+                                placeholder="Enter title">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="post-text" class="col-sm-2 col-form-label">Post:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="post-text" rows="10"
+                                placeholder="Start blogging!"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nevermind</button>
+                <button id="publish-btn" type="button" class="btn btn-primary">Publish</button>
+            </div>
+        </div>
+    </div>
+</div>
