@@ -1,5 +1,6 @@
 main {
     padding-top: 100px;
+    height: 93vh;
 }
 
 .vertical-center {
@@ -8,6 +9,10 @@ main {
 
     display: flex;
     align-items: center;
+}
+
+.fill {
+    height: 100%;
 }
 
 .form-group {
