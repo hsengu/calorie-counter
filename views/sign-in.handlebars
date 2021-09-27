@@ -1,33 +1,35 @@
-<div class="sign-in-container container">
-    <div class="col sign-in-center">
-        <div class="card text-center">
-            <h5 class="card-header">Login</h5>
-            <div class="card-body">
-                <form class="login-form">
-                    <div class="form-group row sign-in-input">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" id="username-login" name="username">
-                    </div>
-                    <div class="form-group row sign-in-input">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" id="password-login" name="password">
-                    </div>
-                    <div class="form-group row">
-                        <div class="container-flex">
-                            <button type="submit" class="btn btn-primary">Login</button>
+<div class="sign-in-container container justify-content-center">
+    <div class="row w-100">
+        <div class="col-lg sign-in-center ">
+            <div class="card text-center">
+                <h5 class="card-header">Login</h5>
+                <div class="card-body">
+                    <form class="login-form">
+                        <div class="form-group row sign-in-input">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username-login" name="username">
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group row sign-in-input">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password-login" name="password">
+                        </div>
+                        <div class="form-group row">
+                            <div class="container-flex">
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col sign-in-center">
-        <h3>or</h3>
-    </div>
-    <div class="col sign-in-center">
-        <form action="/register" method="get">
-            <button type="submit" class="sign-in-btn" href="/register">Create a new profile</button>
-        </form>
+        <div class="col-lg text-center sign-in-center">
+            <h3>or</h3>
+        </div>
+        <div class="col-lg text-center sign-in-center">
+            <form action="/register" method="get">
+                <button type="submit" class="sign-in-btn" href="/register">Create a new profile</button>
+            </form>
+        </div>
     </div>
 </div>
 <script src="/js/login.js"></script>
