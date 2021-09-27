@@ -71,3 +71,7 @@
 #progress-save-btn:hover {
     opacity: 100%;
 }
+
+h1 {
+    text-align: center;
+}
