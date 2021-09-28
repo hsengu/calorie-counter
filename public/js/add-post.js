@@ -1,8 +1,8 @@
 async function addBtnHandler(event) {
     event.preventDefault();
-    // $('#add-post-modal').on('shown.bs.modal', function () {
-    //     $('#post-title').trigger('focus')
-    // });
+    $('#add-post-modal').on('shown.bs.modal', function () {
+        $('#post-title').trigger('focus')
+    });
 };
 
 async function newFormHandler(event) {
