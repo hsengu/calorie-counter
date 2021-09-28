@@ -49,7 +49,6 @@ router.post('/', [withAuth, upload.single('photo')], (req, res) => {
         calories: req.body.calories,
         user_id: req.session.user_id,
     }).then(async dbPostData => {
-        console.log(dbPostData.dataValues);
         if(req.file) {
             dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
         } else {

@@ -21,6 +21,8 @@ async function updateBtnHandler(event) {
     event.preventDefault();
     const id = event.target.value;
 
+    console.log(id);
+
     await fetch(`/api/post/${id}`, {
         method: 'GET'
     }).then(response => {
@@ -33,6 +35,7 @@ async function updateBtnHandler(event) {
         $('#update-food')[0].value = data.foods;
         $('#update-calories')[0].value = data.calories;
         $('#update-post-btn')[0].value = id;
+        $('#delete-post-btn')[0].value = id
     });
 };
 
@@ -55,5 +58,5 @@ async function updatePostHandler(event) {
 };
 
 document.querySelector('.btn-delete').addEventListener('click', delBtnHandler);
-document.querySelector('.btn-update').addEventListener('click', updateBtnHandler);
+document.querySelector('.posts').addEventListener('click', updateBtnHandler);
 document.querySelector('#update-post-btn').addEventListener('click', updatePostHandler);
