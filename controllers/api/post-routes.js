@@ -49,6 +49,7 @@ router.post('/', [withAuth, upload.single('photo')], (req, res) => {
         calories: req.body.calories,
         user_id: req.session.user_id,
     }).then(async dbPostData => {
+        console.log(dbPostData.dataValues);
         if(req.file) {
             dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
         } else {
@@ -80,19 +81,34 @@ router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
         },
         {
             where: {
-                id: req.params.id
+                id: req.params.id,
             }
         }
     ).then(async dbPostData => {
+        dbPostData = await Post.findOne({
+            where: {
+                id: req.params.id
+            },
+            attributes: ['id', 'foods', 'calories', 'created_at'],
+            include: [
+                {
+                    model: Photo,
+                    attributes: ['id', 'cloud_id', 'image_url']
+                }
+            ]
+        });
+        return dbPostData.dataValues;
+    }).then(async dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
 
-        if(req.file && dbPostData.Photo) {
-            dbPostData = await Post.updatePhoto({ ...dbPostData.dataValues }, { ...req.file }, { Photo });
+        console.log(dbPostData);
+        if(req.file && dbPostData) {
+            dbPostData = await Post.updatePhoto({ ...dbPostData }, { ...req.file }, { Photo });
         } else if (req.file) {
-            dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, { ...req.file }, { Photo });
+            dbPostData = await Post.addPhoto({ ...dbPostData }, { ...req.file }, { Photo });
         }
 
         res.json(dbPostData);
