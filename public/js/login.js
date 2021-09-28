@@ -4,7 +4,7 @@ async function loginFormHandler(event) {
 
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-
+// allow a user to log in validating their information using the log in route
     console.log(`${username} ${password}`)
 
     if (username && password) {

@@ -1,3 +1,5 @@
+//fetch the route in users to allow the user to logout via the log out button
+
 async function logout() {
     await fetch('/api/users/logout', {
         method: 'post',
