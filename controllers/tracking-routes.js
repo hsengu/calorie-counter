@@ -49,7 +49,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ]
     }).then(dbPostData => {
         const post = dbPostData.get({ plain: true });
-
         res.render('tracking', {
             post,
             loggedIn: true

@@ -15,13 +15,13 @@ async function loginFormHandler(event) {
                 password
             }),
             headers: { 'Content-Type': 'application/json' }
+        }).then(response => {
+            if(response.ok)
+                document.location.replace('/tracking');
+            else {
+                alert.response.statusText;
+            }
         });
-
-        if (response.ok) {
-            document.location.replace('/tracking');
-        } else {
-            alert(response.statusText);
-        }
     }
 }
 

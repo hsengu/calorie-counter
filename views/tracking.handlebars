@@ -3,19 +3,103 @@
         <div class="col-12">
             <h1>Calorie Tracking</h1>
         </div>
+        <form class="add-post-btn-form">
+            <div class="form-group row">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                    data-bs-target="#add-meal-modal">Add a meal!</button>
+            </div>
+        </form>
         {{#each posts}}
         <div class="card" style="width: 18rem">
-            <img src="{{photo.image_url}}"
-                class="card-img-top" alt="...">
+            {{#if photo}}
+            <img src="{{photo.image_url}}" class="card-img-top" alt="...">
+            {{/if}}
             <div class="card-body">
                 <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Food: {{foods}}</h6>
-                <p class="card-text" id="ID">Total Calories: {{calories}}</p>
+                <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
+                <p class="card-text" id="calories">Total Calories: {{calories}}</p>
                 <p class="card-text" id="Office">Goal Calories: {{user.caloriegoal}}</p>
                 <p class="card-text" id="Office">Remaining Calories: {{calc_calories user.caloriegoal calories}}</p>
-                <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
-                    class="btn btn-primary btn-delete">Delete</a>
+                <button class="btn btn-primary btn-update" data-bs-toggle="modal" data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
+                <button class="btn btn-primary btn-delete" value="{{id}}">Delete</button>
             </div>
         </div>
         {{/each}}
     </div>
+    <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalTitle">Add Meal</h5>
+                </div>
+                <div class="modal-body">
+                    <form action="/api/post" method="post" enctype="multipart/form-data" class="new-post-form"
+                        id="post-form">
+                        <div class="form-group row">
+                            <label for="post-food" class="col-sm-2 col-form-label">Food:</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="post-food" rows="10" name="foods"
+                                    placeholder="What did you eat?"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="post-calories" class="col-sm-2 col-form-label">Calories:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="post-calories" name="calories"
+                                    aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="post-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="post-photo" type="file" name="photo"> </>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <button type="submit" form="post-form" id="publish-btn"
+                                class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal fade" id="update-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ModalTitle">Update Meal</h5>
+                </div>
+                <div class="modal-body">
+                    <form enctype="multipart/form-data" class="update-post-form"
+                        id="update-form">
+                        <div class="form-group row">
+                            <label for="update-food" class="col-sm-2 col-form-label">Food:</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="update-food" rows="10" name="foods"
+                                    placeholder="What did you eat?"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="update-calories" class="col-sm-2 col-form-label">Calories:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="update-calories" name="calories"
+                                    aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="update-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" id="update-photo" type="file" name="photo"> </>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <button type="submit" form="update-form" id="update-post-btn"
+                                class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/posts.js"></script>
