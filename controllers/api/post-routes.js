@@ -43,11 +43,11 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
+router.post('/', [withAuth, upload.single('photo')], (req, res) => {
     Post.create({
         foods: req.body.foods,
         calories: req.body.calories,
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
     }).then(async dbPostData => {
         if(req.file) {
             dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
@@ -72,7 +72,7 @@ router.post('/', /*[withAuth, */upload.single('photo')/*]*/, (req, res) => {
     });
 });
 
-router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) => {
+router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
     Post.update(
         {
             foods: req.body.foods,
@@ -102,7 +102,7 @@ router.put('/:id', /*[withAuth, */upload.single('photo')/*]*/, async (req, res) 
     });
 });
 
-router.delete('/:id', /*withAuth,*/ async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

@@ -1,21 +1,33 @@
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-    res.render('home', {
-        loggedIn: req.session.loggedIn
-    });
+    if(!req.session.loggedIn)
+        res.render('home', {
+            loggedIn: req.session.loggedIn
+        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/signin', (req, res) => {
-    res.render('sign-in', {
-        loggedIn: req.session.loggedIn
-    });
+    if(!req.session.loggedIn)
+        res.render('sign-in', {
+            loggedIn: req.session.loggedIn
+        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/register', (req, res) => {
-    res.render('register', {
-        loggedIn: req.session.loggedIn
-    });
+    if(!req.session.loggedIn)
+        res.render('register', {
+            loggedIn: req.session.loggedIn
+        });
+    else {
+        res.redirect('/tracking');
+    }
 });
 
 router.get('/upload', (req, res) => {

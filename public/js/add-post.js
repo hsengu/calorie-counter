@@ -1,37 +1,27 @@
-// async function addBtnHandler(event) {
-//     event.preventDefault();
-//     // $('#add-post-modal').on('shown.bs.modal', function () {
-//     //     $('#post-title').trigger('focus')
-//     // });
-// };
+async function addBtnHandler(event) {
+    event.preventDefault();
+    $('#add-post-modal').on('shown.bs.modal', function () {
+        $('#post-title').trigger('focus')
+    });
+};
 
-// async function newFormHandler(event) {
-//     event.preventDefault();
+async function newFormHandler(event) {
+    event.preventDefault();
 
-//     const user_id = document.querySelector('input[id="post-userid"]').value;
-//     const title = document.querySelector('input[id="post-foods"]').value;
-//     const post_text = document.querySelector('textarea[id="post-calories"]').value;
+    const form = $('#post-form')[0];
+    const formData = new FormData(form);
 
-//     console.log(`${title} ${post_text}`)
-
-//     const response = await fetch(`/api/posts`, {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             user_id,
-//             title,
-//             post_text
-//         }),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     });
-
-//     if (response.ok) {
-//         //document.location.replace('/dashboard');
-//     } else {
-//         alert(response.statusText);
-//     }
-// }
+    await fetch('/api/post', {
+        method: 'POST',
+        body: formData
+    }).then(response => {
+        if(response.ok) {
+            document.location.replace('/tracking');
+        } else {
+            alert(response.statusText);
+        }
+    });
+};
 
 document.querySelector('#publish-btn').addEventListener('click', newFormHandler);
 document.querySelector('.add-post-btn-form').addEventListener('click', addBtnHandler);

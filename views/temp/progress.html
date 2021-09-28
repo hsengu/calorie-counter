@@ -20,7 +20,7 @@
                 <a class="nav-link" href="#">Home</a>
                 <p class="nav-link">|</p>
                 <!--TODO: render progress.handlebar -->
-                <a class="nav-link"href="#">Progress</a>
+                <a class="nav-link"href="#">Tracking</a>
                 <p class="nav-link">|</p>
                 <!--TODO: render settings.handlebar -->
                 <a class="nav-link" href="#">Settings</a>
@@ -28,21 +28,23 @@
         </div>
     </header>
 
-    <div class="progress-center-small">
-        <h2>Progress</h2>
-    </div>
-
-    <div class="progress-center-big" id="progress-tracker">
-        <p>~~~~~~~~~~~~~~~~~</p>
-        <p>Progress tracking graph here</p>
-        <p>~~~~~~~~~~~~~~~</p>
-    </div>
-
-    <div class="progress-center-small">
-        <label for="gweight">Add your most recent weight:</label>
-        <input type="text" id="gweight" name="gweight">
-        <button id="saveBtn">Save</button>
-    </div>
+    <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1>Calorie Tracking</h1>
+          </div>
+          <div class="card" style="width: 18rem">
+            <img src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+              <p class="card-text" id="ID">Total Calories: </p>
+              <p class="card-text" id="Office">Goal Calories: </p>
+              <p class="card-text" id="Office">Remaining Calories: </p>
+              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
+            </div>
+          </div>
+      </div>
 
 </body>
 </html>

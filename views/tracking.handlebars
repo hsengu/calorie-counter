@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Calorie Tracking</h1>
+        </div>
+        {{#each posts}}
+        <div class="card" style="width: 18rem">
+            <img src="{{photo.image_url}}"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Food: {{foods}}</h6>
+                <p class="card-text" id="ID">Total Calories: {{calories}}</p>
+                <p class="card-text" id="Office">Goal Calories: {{user.caloriegoal}}</p>
+                <p class="card-text" id="Office">Remaining Calories: {{calc_calories user.caloriegoal calories}}</p>
+                <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+                    class="btn btn-primary btn-delete">Delete</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
