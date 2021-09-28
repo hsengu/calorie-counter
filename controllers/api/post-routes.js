@@ -5,6 +5,8 @@ const withAuth = require('../../utils/auth');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 
+
+// route to gather all users posts
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: ['id','foods','calories','created_at'],
@@ -22,6 +24,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//route to find a specific post by id
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -43,6 +46,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
+
+// route to create a post
 router.post('/', [withAuth, upload.single('photo')], (req, res) => {
     Post.create({
         foods: req.body.foods,
@@ -72,6 +77,8 @@ router.post('/', [withAuth, upload.single('photo')], (req, res) => {
     });
 });
 
+
+// route to update a specific post
 router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
     Post.update(
         {
@@ -102,6 +109,7 @@ router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
     });
 });
 
+//route to delete a post
 router.delete('/:id', withAuth, async (req, res) => {
     Post.destroy({
         where: {
