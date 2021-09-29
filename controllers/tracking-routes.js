@@ -7,13 +7,13 @@ const withAuth = require('../utils/auth');
 // Route to load calorie tracking data
 router.get('/', withAuth, (req, res) => {
     const TODAY_START = new Date().setHours(0, 0, 0, 0);
-    const NOW = new Date();
+    const TODAY_END = new Date().setHours(23, 59, 59, 999);
     Post.findAll({
         where: {
             user_id: req.session.user_id,
             created_at: { 
                 [Op.gt]: TODAY_START,
-                [Op.lt]: NOW
+                [Op.lt]: TODAY_END
             }
         },
         attributes: ['id','foods','calories','created_at'],
