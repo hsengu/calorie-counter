@@ -6,7 +6,7 @@ async function signupFormHandler(event) {
     const startweight = document.querySelector('#start-weight').value.trim();
     const goalweight = document.querySelector('#goal-weight').value.trim();
     const caloriegoal = document.querySelector('#calorie-goal').value.trim();
-
+// fetch the route in user to create a new user via submit form 
     if (username && password && startweight && goalweight && caloriegoal) {
         const response = await fetch('/api/users', {
             method: 'post',
