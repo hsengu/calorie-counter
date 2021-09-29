@@ -16,6 +16,8 @@
             <div class="card" style="width: 18rem">
                 {{#if photo}}
                 <img src="{{photo.image_url}}" class="card-img-top" alt="...">
+                {{else}}
+                <img src="/img/placeholder-image.png" class="card-img-top" alt="placeholder food image">
                 {{/if}}
                 <div class="card-body">
                     <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
