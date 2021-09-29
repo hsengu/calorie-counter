@@ -9,6 +9,8 @@
                     data-bs-target="#add-meal-modal">Add a meal!</button>
             </div>
         </form>
+        {{#if posts.length}}
+        <h3>Your calorie progress for {{get_today}}: {{add_calories posts}} / {{get_goal posts}}</h3>
         <div class="container-fluid posts">
             {{#each posts}}
             <div class="card" style="width: 18rem">
@@ -19,13 +21,12 @@
                     <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
                     <p class="card-text" id="calories">Total Calories: {{calories}}</p>
-                    <p class="card-text" id="Office">Goal Calories: {{user.caloriegoal}}</p>
-                    <p class="card-text" id="Office">Remaining Calories: {{calc_calories user.caloriegoal calories}}</p>
                     <button class="btn btn-primary btn-update" data-bs-toggle="modal" data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
                 </div>
             </div>
             {{/each}}
         </div>
+        {{/if}}
     </div>
     <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

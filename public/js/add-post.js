@@ -16,7 +16,7 @@ async function newFormHandler(event) {
         body: formData
     }).then(response => {
         if(response.ok) {
-            document.location.replace('/tracking');
+            document.location.reload();
         } else {
             alert(response.statusText);
         }
