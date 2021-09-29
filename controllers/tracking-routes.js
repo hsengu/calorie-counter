@@ -1,13 +1,20 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
+const Op = require('sequelize').Op;
 const { Post, User, Photo } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Route to load calorie tracking data
 router.get('/', withAuth, (req, res) => {
+    const TODAY_START = new Date().setHours(0, 0, 0, 0);
+    const NOW = new Date();
     Post.findAll({
         where: {
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            created_at: { 
+                [Op.gt]: TODAY_START,
+                [Op.lt]: NOW
+            }
         },
         attributes: ['id','foods','calories','created_at'],
         include: [
