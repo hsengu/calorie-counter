@@ -7,6 +7,7 @@ const sequelize = require('./config/connection');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
+
 if(cloudinary) {
     console.log('cloudinary config:');
     console.log(cloudinary.config());
