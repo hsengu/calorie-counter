@@ -11,16 +11,16 @@ async function newFormHandler(event) {
     const form = $('#post-form')[0];
     const formData = new FormData(form);
 
-    await fetch('/api/post', {
+    const response = await fetch('/api/post', {
         method: 'POST',
         body: formData
-    }).then(response => {
-        if(response.ok) {
-            document.location.reload();
-        } else {
-            alert(response.statusText);
-        }
     });
+
+    if(response.ok) {
+        document.location.reload();
+    } else {
+        alert(response.statusText);
+    }
 };
 
 document.querySelector('#publish-btn').addEventListener('click', newFormHandler);
