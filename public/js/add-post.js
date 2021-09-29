@@ -18,9 +18,7 @@ async function newFormHandler(event) {
     }).then(response => {
         console.log(response);
         if (response.ok) {
-            setTimeout(() => {
-                document.location.replace('/tracking');
-            }, 1000);
+            document.location.replace('/tracking');
         } else {
             alert(response.statusText);
         }
