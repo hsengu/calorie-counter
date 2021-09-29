@@ -19,34 +19,19 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><span><img id="logo" src="/img/blue-gray-logo.png" alt="a plate with spoon and fork"></span>Calorie Tracker</a>
-            {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> 
-            <div class="collapse navbar-collapse" id="navbarContent"> --}}
-                {{!-- <ul class="navbar-nav me-auto">
-                    {{#if loggedIn}}
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(Current)</span></a>
-                    </li>
-                    {{/if}}
-                </ul> --}}
-                <form class="dflex my-2 my-lg-0">
-                    {{#if loggedIn}}
-                    <button id="logoutBtn" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
-                    {{!-- {{else}}
-                    <a id="registerBtn" class="btn btn-outline-danger my-2 my-sm-0" href="/register">Register</a>
-                    <a id="loginBtn" class="btn btn-outline-success my-2 my-sm-0" href="/signin">Login</a> --}}
-                    {{/if}}
-                </form>
-            {{!-- </div> --}}
+            <a class="navbar-brand" href="/"><span><img id="logo" src="/img/blue-gray-logo.png"
+                        alt="a plate with spoon and fork"></span>Calorie Tracker</a>
+            <form class="dflex my-2 my-lg-0">
+                {{#if loggedIn}}
+                <button id="logoutBtn" class="btn btn-outline-success my-2 my-sm-0">Logout</button>
+                {{/if}}
+            </form>
         </div>
     </nav>
     <main>
         {{{ body }}}
     </main>
-    <footer class="footer text-center fixed-bottom">
+    <footer class="footer mt-auto py-3 bg-light text-center fixed-bottom">
         <div class="container">
             <span class="text-muted">Made with love ❤️ by: George Ngo, Hannah Roddy, Denise Tuominen, and Hok Uy</span>
         </div>

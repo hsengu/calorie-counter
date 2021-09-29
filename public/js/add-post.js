@@ -1,4 +1,4 @@
-async function addBtnHandler(event) {
+function addBtnHandler(event) {
     event.preventDefault();
     $('#add-post-modal').on('shown.bs.modal', function () {
         $('#post-title').trigger('focus')
@@ -8,6 +8,7 @@ async function addBtnHandler(event) {
 async function newFormHandler(event) {
     event.preventDefault();
 
+    console.log("clicked");
     const form = $('#post-form')[0];
     const formData = new FormData(form);
 
@@ -15,8 +16,11 @@ async function newFormHandler(event) {
         method: 'POST',
         body: formData
     }).then(response => {
-        if(response.ok) {
-            document.location.reload();
+        console.log(response);
+        if (response.ok) {
+            setTimeout(() => {
+                document.location.replace('/tracking');
+            }, 1000);
         } else {
             alert(response.statusText);
         }

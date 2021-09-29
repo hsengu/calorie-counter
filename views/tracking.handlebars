@@ -23,33 +23,31 @@
     </div>
     <div class="row">
         <div class="col-12">
-            <div class="container-fluid posts">
-                <div class="card-deck d-flex">
-                    {{#each posts}}
-                    <div class="col-sm-4">
-                        <div class="card" style="width: 18rem">
-                            {{#if photo}}
-                            <img src="{{photo.image_url}}" class="card-img-top img-fluid" height="250" width="250" alt="...">
-                            {{else}}
-                            <img src="/img/placeholder-image.png" class="card-img-top img-fluid" height="250" width="250" alt="placeholder food image">
-                            {{/if}}
-                            <div class="card-body">
-                                <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
-                                <p class="card-text" id="calories">Total Calories: {{calories}}</p>
-                                <button class="btn btn-primary btn-update" data-bs-toggle="modal"
-                                    data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
-                            </div>
+            <div class="card-group justify-content-center align-items-stretch posts">
+                {{#each posts}}
+                <div class="align-items-stretch">
+                    <div class="card" style="width: 19rem">
+                        {{#if photo}}
+                        <img src="{{photo.image_url}}" class="card-img-top img-fluid" alt="...">
+                        {{else}}
+                        <img src="/img/placeholder-image.png" class="card-img-top img-fluid"
+                            alt="placeholder food image">
+                        {{/if}}
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
+                            <p class="card-text" id="calories">Total Calories: {{calories}}</p>
+                            <button type="submit" class="btn btn-primary btn-update" data-bs-toggle="modal"
+                                data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
                         </div>
                     </div>
-                    {{/each}}
                 </div>
+                {{/each}}
             </div>
         </div>
     </div>
     {{/if}}
 </div>
-
 <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
