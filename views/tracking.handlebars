@@ -9,6 +9,8 @@
                     data-bs-target="#add-meal-modal">Add a meal!</button>
             </div>
         </form>
+        {{#if posts.length}}
+        <h3>Your calorie progress: {{add_calories posts}} / {{get_goal posts}}</h3>
         <div class="container-fluid posts">
             {{#each posts}}
             <div class="card" style="width: 18rem">
@@ -26,6 +28,7 @@
             </div>
             {{/each}}
         </div>
+        {{/if}}
     </div>
     <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

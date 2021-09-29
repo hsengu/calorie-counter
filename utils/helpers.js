@@ -6,5 +6,16 @@ module.exports = {
     },
     calc_calories: (goal, calories) => {
         return goal - calories;
+    },
+    add_calories: (posts) => {
+        let totalCalories = 0;
+        for(let i = 0; i < posts.length; i++) {
+            totalCalories += posts[i].calories;
+        }
+
+        return totalCalories;
+    },
+    get_goal: (posts) => {
+        return posts[0].user.caloriegoal;
     }
 }
