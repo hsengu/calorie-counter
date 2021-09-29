@@ -10,7 +10,7 @@
             </div>
         </form>
         {{#if posts.length}}
-        <h3>Your calorie progress: {{add_calories posts}} / {{get_goal posts}}</h3>
+        <h3>Your calorie progress for {{get_today}}: {{add_calories posts}} / {{get_goal posts}}</h3>
         <div class="container-fluid posts">
             {{#each posts}}
             <div class="card" style="width: 18rem">

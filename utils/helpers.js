@@ -1,8 +1,6 @@
 module.exports = {
     format_date: date => {
-        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(
-            date
-        ).getFullYear()}`;
+        return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear()}`;
     },
     calc_calories: (goal, calories) => {
         return goal - calories;
@@ -17,5 +15,8 @@ module.exports = {
     },
     get_goal: (posts) => {
         return posts[0].user.caloriegoal;
+    },
+    get_today: () => {
+        return `${new Date().getMonth() + 1}/${new Date().getDate()}`
     }
 }
