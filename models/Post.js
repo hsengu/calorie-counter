@@ -2,6 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const cloudinary = require('../config/cloudinaryConfig');
 const fs = require('fs');
+
+// sets up the post table in the database to store users posts
 class Post extends Model {
     static async addPhoto(data, file, models) {
         const upload = await cloudinary.uploader.upload(file.path, (err, res) => {

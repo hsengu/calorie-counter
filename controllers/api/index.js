@@ -2,6 +2,8 @@ const router = require('express').Router();
 const userRoutes = require('./user-routes');
 const postRoutes = require('./post-routes');
 
+
+// routes for gathering user data and post data
 router.use('/users', userRoutes);
 router.use('/post', postRoutes);
 

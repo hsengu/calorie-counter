@@ -2,7 +2,7 @@ const User = require('./User');
 const Photo = require('./Photo');
 const Post = require('./Post');
 
-// create associations
+// create associations between routes
 User.hasMany(Post, { foreignKey: 'user_id' });
 Post.belongsTo(User, { foreignKey: 'user_id' });
 Post.hasOne(Photo, { foreignKey: 'post_id' });

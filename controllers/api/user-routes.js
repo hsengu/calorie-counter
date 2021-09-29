@@ -13,6 +13,7 @@ router.get('/users', (req, res) => {
     });
 });
 
+//route to find a specific user
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
@@ -33,6 +34,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
+//route to create a user with a username, start and goal weight, calorie goal and a password
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
@@ -47,7 +49,7 @@ router.post('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// route to login and authenticate a user
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
@@ -75,7 +77,7 @@ router.post('/login', (req, res) => {
     });
   });
 });
-
+// route to update a user info
 router.put('/:id', (req, res) => {
   
   User.update(req.body, {
@@ -96,7 +98,7 @@ router.put('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+// route to delete a user
 router.delete('/:id', (req, res) => {
   User.destroy({
     where: {
@@ -115,7 +117,7 @@ router.delete('/:id', (req, res) => {
       res.status(500).json(err);
     });
 });
-
+//route to logout of user account
 router.post('/logout', (req, res) => {
   if(req.session.loggedIn) {
       req.session.destroy(() => {
