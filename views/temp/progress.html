@@ -1,101 +1,118 @@
 <!DOCTYPE html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="./progress.css">
-    <title>Calorie Counter - Progress</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="./progress.css">
+  <title>Calorie Counter - Progress</title>
 </head>
+
 <body>
-    <header id="header">
-        <div class="header-left-section">
-            <img id="logo" src="blue-gray-logo.png" alt="a plate with spoon and fork">
-            <!--TODO: render home.handlebar -->
-            <h1><a href="#">Calorie Tracker</a></h1>
-        </div>
-        <div class="header-right-section">
-            <nav id="nav">
-                <!--TODO: render home.handlebar -->
-                <a class="nav-link" href="#">Home</a>
-                <p class="nav-link">|</p>
-                <!--TODO: render progress.handlebar -->
-                <a class="nav-link"href="#">Tracking</a>
-                <p class="nav-link">|</p>
-                <!--TODO: render settings.handlebar -->
-                <a class="nav-link" href="#">Settings</a>
-            </nav>
-        </div>
-    </header>
+  <header id="header">
+    <div class="header-left-section">
+      <img id="logo" src="blue-gray-logo.png" alt="a plate with spoon and fork">
+      <!--TODO: render home.handlebar -->
+      <h1><a href="#">Calorie Tracker</a></h1>
+    </div>
+    <div class="header-right-section">
+      <nav id="nav">
+        <!--TODO: render home.handlebar -->
+        <a class="nav-link" href="#">Home</a>
+        <p class="nav-link">|</p>
+        <!--TODO: render progress.handlebar -->
+        <a class="nav-link" href="#">Tracking</a>
+        <p class="nav-link">|</p>
+        <!--TODO: render settings.handlebar -->
+        <a class="nav-link" href="#">Settings</a>
+      </nav>
+    </div>
+  </header>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1>Calorie Tracking</h1>
-          </div>
-          <div class ="card-deck">
-          <div class="card" style="width: 18rem">
-            <img src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
-              <p class="card-text" id="ID">Total Calories: </p>
-              <p class="card-text" id="Office">Goal Calories: </p>
-              <p class="card-text" id="Office">Remaining Calories: </p>
-              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <img src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
-              <p class="card-text" id="ID">Total Calories: </p>
-              <p class="card-text" id="Office">Goal Calories: </p>
-              <p class="card-text" id="Office">Remaining Calories: </p>
-              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <img src="https://www.pexels.com/photo/pancake-with-honey-on-plate-357573/" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
-              <p class="card-text" id="ID">Total Calories: </p>
-              <p class="card-text" id="Office">Goal Calories: </p>
-              <p class="card-text" id="Office">Remaining Calories: </p>
-              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <img src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
-              <p class="card-text" id="ID">Total Calories: </p>
-              <p class="card-text" id="Office">Goal Calories: </p>
-              <p class="card-text" id="Office">Remaining Calories: </p>
-              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <img src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
-              <p class="card-text" id="ID">Total Calories: </p>
-              <p class="card-text" id="Office">Goal Calories: </p>
-              <p class="card-text" id="Office">Remaining Calories: </p>
-              <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#" class="btn btn-primary btn-delete">Delete</a>
-            </div>
-          </div>
-
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h1>Calorie Tracking</h1>
       </div>
+      <div class="card-deck">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+            <p class="card-text" id="ID">Total Calories: </p>
+            <p class="card-text" id="Office">Goal Calories: </p>
+            <p class="card-text" id="Office">Remaining Calories: </p>
+            <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+              class="btn btn-primary btn-delete">Delete</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+            <p class="card-text" id="ID">Total Calories: </p>
+            <p class="card-text" id="Office">Goal Calories: </p>
+            <p class="card-text" id="Office">Remaining Calories: </p>
+            <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+              class="btn btn-primary btn-delete">Delete</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem">
+          <img src="https://www.pexels.com/photo/pancake-with-honey-on-plate-357573/" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+            <p class="card-text" id="ID">Total Calories: </p>
+            <p class="card-text" id="Office">Goal Calories: </p>
+            <p class="card-text" id="Office">Remaining Calories: </p>
+            <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+              class="btn btn-primary btn-delete">Delete</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+            <p class="card-text" id="ID">Total Calories: </p>
+            <p class="card-text" id="Office">Goal Calories: </p>
+            <p class="card-text" id="Office">Remaining Calories: </p>
+            <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+              class="btn btn-primary btn-delete">Delete</a>
+          </div>
+        </div>
+
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://www.foodiesfeed.com/wp-content/uploads/2021/01/fried-egg-and-guacamole-sandwiches-819x1024.jpg.webp"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><i class="fas fa-coffee"></i>Date</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Food Log</h6>
+            <p class="card-text" id="ID">Total Calories: </p>
+            <p class="card-text" id="Office">Goal Calories: </p>
+            <p class="card-text" id="Office">Remaining Calories: </p>
+            <a href="#" class="btn btn-primary btn-update">Update</a> <a href="#"
+              class="btn btn-primary btn-delete">Delete</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
 </body>
+
 </html>
