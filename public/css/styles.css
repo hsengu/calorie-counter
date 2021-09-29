@@ -1,7 +1,10 @@
+body {
+    padding-bottom: 1000px;
+}
+
 main {
     padding-top: 100px;
-    height: 93vh;
-    padding-bottom: 1000px;
+    height: 95vh;
 }
 
 .vertical-center {
@@ -21,13 +24,8 @@ main {
 }
 
 .footer {
-    bottom: 0;
+    /* bottom: 0; */
     width: 100%;
-    line-height: 40px;
+    line-height: 30px;
     background-color: #f5f5f5;
-}
-
-.card-image {
-    height: 500px;
-    width: 500px;
 }

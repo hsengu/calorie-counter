@@ -19,11 +19,12 @@
 <body>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/"><span><img id="logo" src="/img/blue-gray-logo.png" alt="a plate with spoon and fork"></span>Calorie Tracker</a>
+            <a class="navbar-brand" href="/"><span><img id="logo" src="/img/blue-gray-logo.png"
+                        alt="a plate with spoon and fork"></span>Calorie Tracker</a>
             {{!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
                 aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button> 
+            </button>
             <div class="collapse navbar-collapse" id="navbarContent"> --}}
                 {{!-- <ul class="navbar-nav me-auto">
                     {{#if loggedIn}}
@@ -40,17 +41,18 @@
                     <a id="loginBtn" class="btn btn-outline-success my-2 my-sm-0" href="/signin">Login</a> --}}
                     {{/if}}
                 </form>
-            {{!-- </div> --}}
+                {{!--
+            </div> --}}
         </div>
     </nav>
-    <main>
+    <main class="container-fluid">
         {{{ body }}}
     </main>
     <footer class="footer text-center fixed-bottom">
-        <div class="container">
-            <span class="text-muted">Made with love ❤️ by: George Ngo, Hannah Roddy, Denise Tuominen, and Hok Uy</span>
-        </div>
-    </footer>
+    <div class="container">
+        <span class="text-muted">Made with love ❤️ by: George Ngo, Hannah Roddy, Denise Tuominen, and Hok Uy</span>
+    </div>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
