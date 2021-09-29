@@ -1,4 +1,4 @@
-async function addBtnHandler(event) {
+function addBtnHandler(event) {
     event.preventDefault();
     $('#add-post-modal').on('shown.bs.modal', function () {
         $('#post-title').trigger('focus')
@@ -17,7 +17,7 @@ async function newFormHandler(event) {
     });
 
     if(response.ok) {
-        document.location.reload();
+        document.location.replace('/tracking');
     } else {
         alert(response.statusText);
     }
