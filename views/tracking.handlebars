@@ -3,113 +3,130 @@
         <div class="col-12">
             <h1>Calorie Tracking</h1>
         </div>
-        <form class="add-post-btn-form">
-            <div class="form-group row">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal"
-                    data-bs-target="#add-meal-modal">Add a meal!</button>
-            </div>
-        </form>
-        {{#if posts.length}}
-        <h3>Your calorie progress for {{get_today}}: {{add_calories posts}} / {{get_goal posts}}</h3>
-        <div class="container-fluid posts">
-            <div class= "card-deck">
-            {{#each posts}}
-            <div class="card" style="width: 18rem">
-                {{#if photo}}
-                <img src="{{photo.image_url}}" class="card-img-top" alt="...">
-                {{else}}
-                <img src="/img/placeholder-image.png" class="card-img-top" alt="placeholder food image">
-                {{/if}}
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
-                    <p class="card-text" id="calories">Total Calories: {{calories}}</p>
-                    <button class="btn btn-primary btn-update" data-bs-toggle="modal" data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
-                </div>
-            </div>
-            {{/each}}
-            </div>
-        </div>
-        {{/if}}
     </div>
-    <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalTitle">Add Meal</h5>
+    <div class="row">
+        <div class="col-12">
+            <form class="add-post-btn-form">
+                <div class="form-group row">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#add-meal-modal">Add a
+                        meal!</button>
                 </div>
-                <div class="modal-body">
-                    <form action="/api/post" method="post" enctype="multipart/form-data" class="new-post-form"
-                        id="post-form">
-                        <div class="form-group row">
-                            <label for="post-food" class="col-sm-2 col-form-label">Food:</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="post-food" rows="10" name="foods"
-                                    placeholder="What did you eat?"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="post-calories" class="col-sm-2 col-form-label">Calories:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="post-calories" name="calories"
-                                    aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="post-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="post-photo" type="file" name="photo"> </>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <button type="submit" form="post-form" id="publish-btn"
-                                class="btn btn-primary">Save</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-        <div class="modal fade" id="update-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="ModalTitle">Update Meal</h5>
-                </div>
-                <div class="modal-body">
-                    <form enctype="multipart/form-data" class="update-post-form"
-                        id="update-form">
-                        <div class="form-group row">
-                            <label for="update-food" class="col-sm-2 col-form-label">Food:</label>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="update-food" rows="10" name="foods"
-                                    placeholder="What did you eat?"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="update-calories" class="col-sm-2 col-form-label">Calories:</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="update-calories" name="calories"
-                                    aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="update-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
-                            <div class="col-sm-10">
-                                <input class="form-control" id="update-photo" type="file" name="photo"> </>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <button type="submit" form="update-form" id="update-post-btn"
-                                class="btn btn-primary">Save</button>
-                            <button type="submit" form="update-form" class="btn btn-danger btn-delete" id="delete-post-btn">Delete</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="/js/add-post.js"></script>
     {{#if posts.length}}
-    <script src="/js/edit-posts.js"></script>
+    <div class="row">
+        <div class="col-12">
+            <h3>Your calorie progress for {{get_today}}: {{add_calories posts}} / {{get_goal posts}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="container-fluid posts">
+                <div class="card-deck d-flex">
+                    {{#each posts}}
+                    <div class="col-sm-4">
+                        <div class="card" style="width: 18rem">
+                            {{#if photo}}
+                            <img src="{{photo.image_url}}" class="card-img-top img-fluid" height="250" width="250" alt="...">
+                            {{else}}
+                            <img src="/img/placeholder-image.png" class="card-img-top img-fluid" height="250" width="250" alt="placeholder food image">
+                            {{/if}}
+                            <div class="card-body">
+                                <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
+                                <p class="card-text" id="calories">Total Calories: {{calories}}</p>
+                                <button class="btn btn-primary btn-update" data-bs-toggle="modal"
+                                    data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
     {{/if}}
+</div>
+
+<div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Add Meal</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/api/post" method="post" enctype="multipart/form-data" class="new-post-form"
+                    id="post-form">
+                    <div class="form-group row">
+                        <label for="post-food" class="col-sm-2 col-form-label">Food:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="post-food" rows="10" name="foods"
+                                placeholder="What did you eat?"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="post-calories" class="col-sm-2 col-form-label">Calories:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="post-calories" name="calories"
+                                aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="post-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="post-photo" type="file" name="photo"> </>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <button type="submit" form="post-form" id="publish-btn" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="update-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalTitle">Update Meal</h5>
+            </div>
+            <div class="modal-body">
+                <form enctype="multipart/form-data" class="update-post-form" id="update-form">
+                    <div class="form-group row">
+                        <label for="update-food" class="col-sm-2 col-form-label">Food:</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="update-food" rows="10" name="foods"
+                                placeholder="What did you eat?"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="update-calories" class="col-sm-2 col-form-label">Calories:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="update-calories" name="calories"
+                                aria-describedby="caloriesHelp" placeholder="Enter total calorie intake.">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="update-photo" class="col-sm-2 col-form-label">Upload a picture:</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" id="update-photo" type="file" name="photo"> </>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <button type="submit" form="update-form" id="update-post-btn"
+                            class="btn btn-primary">Save</button>
+                        <button type="submit" form="update-form" class="btn btn-danger btn-delete"
+                            id="delete-post-btn">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/add-post.js"></script>
+{{#if posts.length}}
+<script src="/js/edit-posts.js"></script>
+{{/if}}
