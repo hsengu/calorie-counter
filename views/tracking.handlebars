@@ -9,22 +9,23 @@
                     data-bs-target="#add-meal-modal">Add a meal!</button>
             </div>
         </form>
-        {{#each posts}}
-        <div class="card" style="width: 18rem">
-            {{#if photo}}
-            <img src="{{photo.image_url}}" class="card-img-top" alt="...">
-            {{/if}}
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
-                <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
-                <p class="card-text" id="calories">Total Calories: {{calories}}</p>
-                <p class="card-text" id="Office">Goal Calories: {{user.caloriegoal}}</p>
-                <p class="card-text" id="Office">Remaining Calories: {{calc_calories user.caloriegoal calories}}</p>
-                <button class="btn btn-primary btn-update" data-bs-toggle="modal" data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
-                <button class="btn btn-primary btn-delete" value="{{id}}">Delete</button>
+        <div class="container-fluid posts">
+            {{#each posts}}
+            <div class="card" style="width: 18rem">
+                {{#if photo}}
+                <img src="{{photo.image_url}}" class="card-img-top" alt="...">
+                {{/if}}
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-coffee"></i> {{format_date created_at}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted" id="food">Food: {{foods}}</h6>
+                    <p class="card-text" id="calories">Total Calories: {{calories}}</p>
+                    <p class="card-text" id="Office">Goal Calories: {{user.caloriegoal}}</p>
+                    <p class="card-text" id="Office">Remaining Calories: {{calc_calories user.caloriegoal calories}}</p>
+                    <button class="btn btn-primary btn-update" data-bs-toggle="modal" data-bs-target="#update-meal-modal" value="{{id}}">Update</button>
+                </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
     <div class="modal fade" id="add-meal-modal" role="dialog" aria-labelledby="ModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -96,10 +97,14 @@
                         <div class="form-group row">
                             <button type="submit" form="update-form" id="update-post-btn"
                                 class="btn btn-primary">Save</button>
+                            <button type="submit" form="update-form" class="btn btn-danger btn-delete" id="delete-post-btn">Delete</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script src="/js/posts.js"></script>
+    <script src="/js/add-post.js"></script>
+    {{#if posts.length}}
+    <script src="/js/edit-posts.js"></script>
+    {{/if}}

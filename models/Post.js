@@ -49,7 +49,7 @@ class Post extends Model {
             attributes: ['cloud_id']
         });
 
-        const upload = await cloudinary.uploader.upload(req.file.path, (err, res) => {
+        const upload = await cloudinary.uploader.upload(file.path, (err, res) => {
             if (err)
                 console.error(err);
             fs.unlink(file.path, err => {
@@ -59,23 +59,24 @@ class Post extends Model {
                     console.log(`${file.path} removed from server storage.`)
             });
             return res;
-        }).then(async () => {
-            const delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
+        }).then(async res => {
+            await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
                 if (err)
                     console.log(err);
-                console.log(`${deletePhoto.cloud_id} removed from cloudinary. ${delPhoto}`);
+                else 
+                    console.log(`${deletePhoto.cloud_id} removed from cloudinary.`);
             });
             return res;
         });
 
-        return models.Photo.update(
+        return await models.Photo.update(
             {
                 cloud_id: upload.public_id,
                 image_url: upload.url
             },
             {
                 where: {
-                    post_id: req.params.id
+                    post_id: data.id
                 }
             }).then(() => {
                 return Post.findOne({
@@ -101,15 +102,16 @@ class Post extends Model {
             where: {
                 post_id: id
             },
-            attributes: ['cloud_id']
+            attributes: ['cloud_id'],
+            raw: true
         }).then(async dbPhotoData => {
             if (!dbPhotoData) {
                 return null;
             } else {
-                return delPhoto = await cloudinary.uploader.destroy(deletePhoto.cloud_id, (err, res) => {
+                return await cloudinary.uploader.destroy(dbPhotoData.cloud_id, (err, res) => {
                     if (err)
                         console.log(err);
-                    console.log(`${deletePhoto.cloud_id} removed from cloudinary. ${delPhoto}`);
+                    console.log(`${dbPhotoData.cloud_id} removed from cloudinary.`);
                     return res;
                 });
             }

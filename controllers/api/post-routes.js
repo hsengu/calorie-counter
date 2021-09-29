@@ -54,7 +54,6 @@ router.post('/', [withAuth, upload.single('photo')], (req, res) => {
         calories: req.body.calories,
         user_id: req.session.user_id,
     }).then(async dbPostData => {
-        console.log(dbPostData.dataValues);
         if(req.file) {
             dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
         } else {
@@ -102,16 +101,16 @@ router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
                     model: Photo,
                     attributes: ['id', 'cloud_id', 'image_url']
                 }
-            ]
+            ],
+            raw: true
         });
-        return dbPostData.dataValues;
+        return dbPostData;
     }).then(async dbPostData => {
         if (!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
 
-        console.log(dbPostData);
         if(req.file && dbPostData) {
             dbPostData = await Post.updatePhoto({ ...dbPostData }, { ...req.file }, { Photo });
         } else if (req.file) {
@@ -127,21 +126,22 @@ router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
 
 //route to delete a post
 router.delete('/:id', withAuth, async (req, res) => {
-    Post.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(async dbPostData => {
-        if (!dbPostData) {
-            res.status(404).json({ message: 'No post found with this id' });
-            return;
-        }
-        let result;
-        result = await Post.deletePhoto({ ...req.params.id }, { Photo });
-        res.json(result ? result : dbPostData);
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json(err);
+    await Post.deletePhoto(req.params.id, { Photo }).then(() => {
+        Post.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        }).catch(err => {
+            if(err)
+                console.log(err);
+                res.status(500).json(err);
+        })
     });
 });
 
