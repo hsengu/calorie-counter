@@ -58,5 +58,6 @@ async function updatePostHandler(event) {
 };
 
 document.querySelector('.btn-delete').addEventListener('click', delBtnHandler);
-document.querySelector('.posts').addEventListener('click', updateBtnHandler);
+const updateBtns = document.querySelectorAll('.btn-update');
+updateBtns.forEach(btn => btn.addEventListener('click', updateBtnHandler));
 document.querySelector('#update-post-btn').addEventListener('click', updatePostHandler);

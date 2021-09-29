@@ -8,19 +8,23 @@ function addBtnHandler(event) {
 async function newFormHandler(event) {
     event.preventDefault();
 
+    console.log("clicked");
     const form = $('#post-form')[0];
     const formData = new FormData(form);
 
-    const response = await fetch('/api/post', {
+    await fetch('/api/post', {
         method: 'POST',
         body: formData
+    }).then(response => {
+        console.log(response);
+        if (response.ok) {
+            setTimeout(() => {
+                document.location.replace('/tracking');
+            }, 1000);
+        } else {
+            alert(response.statusText);
+        }
     });
-
-    if(response.ok) {
-        document.location.replace('/tracking');
-    } else {
-        alert(response.statusText);
-    }
 };
 
 document.querySelector('#publish-btn').addEventListener('click', newFormHandler);
