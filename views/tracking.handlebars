@@ -26,11 +26,11 @@
             <div class="card-group justify-content-center align-items-stretch posts">
                 {{#each posts}}
                 <div class="align-items-stretch">
-                    <div class="card" style="width: 19rem">
+                    <div class="card" style="width: 18rem">
                         {{#if photo}}
-                        <img src="{{photo.image_url}}" class="card-img-top img-fluid" alt="...">
+                        <img src="{{photo.image_url}}" class="card-img-top img-fluid card-img" alt="...">
                         {{else}}
-                        <img src="/img/placeholder-image.png" class="card-img-top img-fluid"
+                        <img src="/img/placeholder-image.png" class="card-img-top img-fluid card-img"
                             alt="placeholder food image">
                         {{/if}}
                         <div class="card-body">
