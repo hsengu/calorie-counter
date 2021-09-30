@@ -1,11 +1,15 @@
+body {
+    height: 100%;
+}
+
 main {
-    /* padding-top: 100px; */
-    height: 95vh;
+    padding-top: 100px;
+    min-height: calc(100vh - 50px);
 }
 
 main > .container {
-    padding: 100px 15px 0;
-  }
+    height: 100%;
+}
   
 
 .vertical-center {

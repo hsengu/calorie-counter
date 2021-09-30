@@ -6,7 +6,7 @@ async function loginFormHandler(event) {
 // allow a user to log in validating their information using the log in route
 
     if (username && password) {
-        await fetch('/api/users/login', {
+        await fetch('/api/users/login', {           // Call API endpoint for logging in
             method: 'post',
             body: JSON.stringify({
                 username,
@@ -18,18 +18,19 @@ async function loginFormHandler(event) {
                 document.location.replace('/tracking');
             }
             else {
-                alert(`${response.statusText}: These credentials are not valid. Please try again or register for an account.`);
+                alert(`${response.statusText}: These credentials are not valid. Please try again or register for an account.`);     // Display alert if an error occurs
             }
         });
     }
 }
 
+// Helper function to display alert and message
 function alert(message) {
-    var alertEl = $('.alert');
-    var alertMsg = $('.alert-message');
+    var alertEl = $('.alert');              // Select alert element
+    var alertMsg = $('.alert-message');     // Select alert element's message element
 
-    alertMsg.text(message);
-    alertEl.addClass('show');
+    alertMsg.text(message);             // Update message
+    alertEl.addClass('show');           // Show alert
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
