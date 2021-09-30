@@ -6,9 +6,9 @@ async function signupFormHandler(event) {
     const startweight = document.querySelector('#start-weight').value.trim();
     const goalweight = document.querySelector('#goal-weight').value.trim();
     const caloriegoal = document.querySelector('#calorie-goal').value.trim();
-// fetch the route in user to create a new user via submit form 
+    // fetch the route in user to create a new user via submit form 
     if (username && password && startweight && goalweight && caloriegoal) {
-        const response = await fetch('/api/users', {
+        await fetch('/api/users', {
             method: 'post',
             body: JSON.stringify({
                 username,
@@ -18,15 +18,23 @@ async function signupFormHandler(event) {
                 caloriegoal
             }),
             headers: { 'Content-Type': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                console.log("DO THIS");
+                document.location.replace('/');
+            } else {
+                alert(`${response.statusText}: This username already exists.`);
+            }
         });
-
-        if (response.ok) {
-            console.log('success');
-            document.location.replace('/');
-        } else {
-            alert(response.statusText);
-        }
     }
+}
+
+function alert(message) {
+    var alertEl = $('.alert');
+    var alertMsg = $('.alert-message');
+
+    alertMsg.text(message);
+    alertEl.addClass('show');
 }
 
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

@@ -8,7 +8,6 @@ function addBtnHandler(event) {
 async function newFormHandler(event) {
     event.preventDefault();
 
-    console.log("clicked");
     const form = $('#post-form')[0];
     const formData = new FormData(form);
 
