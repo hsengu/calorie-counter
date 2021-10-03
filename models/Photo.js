@@ -1,24 +1,32 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// sets up the photo table in the database to store photos
 class Photo extends Model {};
 
 Photo.init({
-    imageName: {
-        type: DataTypes.STRING,
+    id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
-    cloudImage: {
+    cloud_id: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    imageId: {
-        type: DataTypes.STRING
+    image_url:
+    {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
-    post_date: {
-        type: DataTypes.DATE,
-        default: Date.now
+    post_id: {
+        type: DataTypes.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+            model: 'post',
+            key: 'id'
+        }
     }
 },
 {

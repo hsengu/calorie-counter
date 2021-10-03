@@ -1,0 +1,48 @@
+body {
+    height: 100%;
+}
+
+main {
+    padding-top: 100px;
+    min-height: calc(100vh - 50px);
+}
+
+main > .container {
+    height: 100%;
+    padding-bottom: 75px
+}
+  
+
+.vertical-center {
+    min-height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+}
+
+.fill {
+    height: 100%;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    line-height: 30px;
+    background-color: #f5f5f5;
+}
+
+.card-img {
+    width: 500px;
+    height: 300px;
+}
+
+.card {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+}

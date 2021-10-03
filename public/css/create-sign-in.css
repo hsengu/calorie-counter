@@ -1,0 +1,95 @@
+/*Create-Header style start */
+
+#header {
+    height: 90px;
+    background-color: #797A9E;
+    padding-top: 20px;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left-section {
+    display: flex;
+}
+
+.header-left-section h1 {
+    color: white;
+    text-decoration: none;
+}
+
+#logo {
+    height: 50px;
+    padding-right: 10px;
+}
+
+/*Create-Header style end */
+
+
+/*Create style start */
+  
+  #callAction {
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  /* .container {
+      display: flex;
+      flex: wrap;
+      align-items: center;
+      margin-top: 20px;
+      flex-direction: column;
+  } */
+  
+  .input {
+      margin: 20px;
+  }
+  
+  #goBtn {
+      background-color:  #797A9E;
+      color: white;
+      opacity: 75%; 
+  }
+  
+  #goBtn:hover {
+      opacity: 100%;
+  }
+
+  /*Create style end */
+
+  /* Sign-in style start */
+
+#sign-in-action {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sign-in-center {
+    margin: auto;
+    justify-content: space-between;
+}
+
+.sign-in-container {
+    display: flex;
+    flex: wrap;
+    align-items: space-between;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-direction: row;
+}
+
+.sign-in-input {
+    margin: 20px;
+}
+
+.sign-in-btn {
+    background-color:  #797A9E;
+    color: white;
+    opacity: 75%; 
+}
+
+.sign-in-btn:hover {
+    opacity: 100%;
+}
+
+  /* Sign0in style end */

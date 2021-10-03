@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
-const photoRoutes = require('./photo-routes');
 const postRoutes = require('./post-routes');
 
+
+// routes for gathering user data and post data
 router.use('/users', userRoutes);
-router.use('/photo', photoRoutes);
 router.use('/post', postRoutes);
 
 module.exports = router;
