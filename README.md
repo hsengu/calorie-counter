@@ -6,7 +6,7 @@
 * [Built With](#built-with)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributing](#contributing-calorie-tracker)
+* [Contributing](#contributing-to-calorie-tracker)
 * [Test](#test)
 * [Questions](#questions)
 * [License](#license)
