@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+
 // sets up the photo table in the database to store photos
 class Photo extends Model {};
 

@@ -8,7 +8,7 @@ const withAuth = require('../utils/auth');
 router.get('/', withAuth, (req, res) => {
     const TODAY_START = new Date().setHours(0, 0, 0, 0);
     const TODAY_END = new Date().setHours(23, 59, 59, 999);
-    Post.findAll({
+    Post.findAll({                          // Get all Posts for the logged in user only for the current day
         where: {
             user_id: req.session.user_id,
             created_at: { 
@@ -38,7 +38,7 @@ router.get('/', withAuth, (req, res) => {
 
 // API route to edit a single Post
 router.get('/edit/:id', withAuth, (req, res) => {
-    Post.findOne({
+    Post.findOne({                                      // Get a single post
         where: {
             id: req.params.id
         },

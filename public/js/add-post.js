@@ -1,3 +1,4 @@
+// Function to focus the modal form fields when modal is opened
 function addBtnHandler(event) {
     event.preventDefault();
     $('#add-post-modal').on('shown.bs.modal', function () {
@@ -5,14 +6,14 @@ function addBtnHandler(event) {
     });
 };
 
+// Function to handle formdata when submit button is clicked
 async function newFormHandler(event) {
     event.preventDefault();
 
-    console.log("clicked");
-    const form = $('#post-form')[0];
-    const formData = new FormData(form);
+    const form = $('#post-form')[0];            // Gets form
+    const formData = new FormData(form);        // Converts form into formdata
 
-    await fetch('/api/post', {
+    await fetch('/api/post', {          // Calls API endpoint to create a new Post with multipart formdata
         method: 'POST',
         body: formData
     }).then(response => {

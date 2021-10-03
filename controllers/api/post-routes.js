@@ -55,9 +55,9 @@ router.post('/', [withAuth, upload.single('photo')], (req, res) => {
         user_id: req.session.user_id,
     }).then(async dbPostData => {
         if(req.file) {
-            dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });
+            dbPostData = await Post.addPhoto({ ...dbPostData.dataValues }, {...req.file }, { Photo });          // Creates a row in the Photo table and connects the new Photo row to the new Post
         } else {
-            dbPostData = await Post.findOne({
+            dbPostData = await Post.findOne({               // Gets the newly created Post row
                 where: {
                     id: dbPostData.id
                 },
@@ -105,15 +105,15 @@ router.put('/:id', [withAuth, upload.single('photo')], async (req, res) => {
             raw: true
         });
         return dbPostData;
-    }).then(async dbPostData => {
+    }).then(async dbPostData => {               // When the Post row is updated attempt to update the associated Photo
         if (!dbPostData) {
             res.status(404).json({ message: 'No post found with this id' });
             return;
         }
 
-        if(req.file && dbPostData) {
+        if(req.file && dbPostData) {            // If there is a new Photo and the Post exists, update the existing Photo
             dbPostData = await Post.updatePhoto({ ...dbPostData }, { ...req.file }, { Photo });
-        } else if (req.file) {
+        } else if (req.file) {                  // Else create a new Photo and attach it to the Post
             dbPostData = await Post.addPhoto({ ...dbPostData }, { ...req.file }, { Photo });
         }
 
